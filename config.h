@@ -98,7 +98,7 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 4;
+unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.55;
@@ -213,16 +213,18 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+	{ Mod1Mask,             XK_Up,          zoom,           {.f = +1} },
+	{ Mod1Mask,             XK_Down,        zoom,           {.f = -1} },
+	{ Mod1Mask,             XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ Mod1Mask,             XK_k,           kscrollup,      {.i =  2} },
+	{ Mod1Mask,             XK_j,           kscrolldown,    {.i =  2} },
+    { ControlMask|MODKEY,   XK_k,           kscrollup,      {.i = -1} },
+    { ControlMask|MODKEY,   XK_j,           kscrolldown,    {.i = -1} },
 };
 
 /*
